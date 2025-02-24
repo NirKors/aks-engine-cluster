@@ -35,7 +35,7 @@ This repository contains the code and configuration to set up a production-ready
 While setting up the cluster, I observed this CoreDNS warning:
 > [WARNING] plugin/kubernetes: Kubernetes API connection failure: Get "https://10.0.0.1:443/version": dial tcp 10.0.0.1:443: connect: no route to host
 
-This warning indicates that CoreDNS was unable to connect to the Kubernetes API server, suggesting that the service isn’t operational. As a result, the pod cannot resolve external resources like the Bitcoin API, leading to errors such as:
+This warning indicates that CoreDNS was unable to connect to the Kubernetes API server, suggesting that the service isn’t operational. As a result, the pod cannot resolve DNS queries like the Bitcoin API, leading to errors such as:
 > Failed to resolve 'api.coingecko.com'
 
 
