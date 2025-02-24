@@ -11,6 +11,7 @@ spec:
     metadata:
       labels:
         app: bitcoin-price-fetcher
+    spec:
       containers:
         - name: bitcoin-price-fetcher
           image: nirkors/service-a:latest
