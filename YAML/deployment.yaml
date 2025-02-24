@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bitcoin-price-fetcher
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bitcoin-price-fetcher
+  template:
+    metadata:
+      labels:
+        app: bitcoin-price-fetcher
+      containers:
+        - name: bitcoin-price-fetcher
+          image: nirkors/service-a:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PYTHONUNBUFFERED
+              value: "1"
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            failureThreshold: 3
+            timeoutSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /readiness
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            failureThreshold: 3
+            timeoutSeconds: 3
+
