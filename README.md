@@ -26,6 +26,8 @@ This repository contains the code and configuration to set up a production-ready
 - **`deployment.yaml`** – Deployment configuration for the Bitcoin price fetcher application.
 - **`service-a.yaml`** – Service definition for Service A.
 - **`service-b.yaml`** – Service definition for Service B.
+- **`network-policy.yaml`** – Defines egress rules (blocking Service-A from Service-B but allowing internet access).
+- **`ingress.yaml`** – Defines routing rules for external access via NGINX Ingress Controller.
 - **`Dockerfile`** – Docker build file for packaging the Bitcoin price fetcher.
 - **`bitcoin_price_fetcher.py`** – Python application script for Service A that fetches and processes Bitcoin price data.
 - **`requirements.txt`** - A requirements file for the Python script.
