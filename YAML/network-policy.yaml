@@ -10,15 +10,6 @@ spec:
   policyTypes:
   - Egress
   egress:
-  - to:
-    - podSelector:
-        matchLabels:
-          app: service-b  # Deny traffic to Service-B's pods
-    ports:
-    - protocol: TCP
-      port: 80  # Block HTTP
-    - protocol: TCP
-      port: 443  # Block HTTPS
   - to:  # Allow external internet access
     - ipBlock:
         cidr: 0.0.0.0/0
