@@ -12,6 +12,9 @@ spec:
       labels:
         app: bitcoin-price-fetcher
     spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000  # Specify a non-root user ID
       containers:
         - name: bitcoin-price-fetcher
           image: nirkors/service-a:latest
@@ -37,4 +40,3 @@ spec:
             periodSeconds: 5
             failureThreshold: 3
             timeoutSeconds: 3
-
